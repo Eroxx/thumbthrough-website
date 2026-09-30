@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 <header class="bar"><div class="wrap">
@@ -68,6 +68,7 @@
       <tr><th scope="row">Shows what you've already kept</th><td class="no">No</td><td class="yes">Yes, with a ✓</td></tr>
       <tr><th scope="row">Picks up where you stopped, in every folder</th><td class="no">No</td><td class="yes">Yes</td></tr>
       <tr><th scope="row">Near-duplicates side by side: keep the best, bin the rest</th><td class="no">No</td><td class="yes">Yes, in one tap</td></tr>
+      <tr><th scope="row">Tells you which photos are new since you last looked</th><td class="no">No</td><td class="yes">Yes</td></tr>
       <tr><th scope="row">Undo, plus a history of each folder with Put Back</th><td class="meh">Recently Deleted only</td><td class="yes">Yes</td></tr>
     </tbody>
   </table>
@@ -85,7 +86,7 @@
 
 <section class="compare">
   <div>
-    <p class="eyebrow">New: Compare</p>
+    <p class="eyebrow">Compare</p>
     <h2>Two takes of the same moment? Keep the better one.</h2>
     <p class="sub">Select two to four photos in the grid and tap Compare. They sit side by side on iPad, stacked on iPhone, each with its size in pixels. Pinch to check focus, then <strong>Keep Only This</strong>: the one you picked stays, the others go, and one Undo brings them all back.</p>
     <ul class="ticks">
@@ -106,16 +107,36 @@
   </div>
 </section>
 
-<section class="shots" aria-label="Screens from the app">
-  <figure><img src="img/iphone-01-viewer.webp" alt="A photo from the folder Weekend Away, with its name, date and position, and Delete and Keep buttons below" width="620" height="1268" loading="lazy"><figcaption>One photo at a time, with Delete and Keep always in reach</figcaption></figure>
-  <figure><img src="img/iphone-02-grid.webp" alt="The whole folder as a grid of thumbnails, sorted by date created, oldest first" width="620" height="1268" loading="lazy"><figcaption>The whole folder at a glance. Tap any photo to jump to it</figcaption></figure>
+<section class="compare flip">
+  <figure><img src="img/ipad-04-new.webp" alt="An iPad showing a photo of a puppy, with a yellow note at the top: 3 new since your last visit, Show" width="900" height="1174" loading="lazy"></figure>
+  <div>
+    <p class="eyebrow">Folders that keep filling up</p>
+    <h2>Come back next month. It knows what's new.</h2>
+    <p class="sub">Camera Uploads, a shared album, a folder a script fills every night: you're never really done with them. Open one again and Thumb Through says how many photos arrived since you last looked, and <strong>Show</strong> takes you straight to them. New ones wear a NEW tag in the grid until you've seen them.</p>
+    <ul class="ticks">
+      <li>It recognises each photo by its size and dates, not its name, so a folder that renames or renumbers its own files keeps your place and your ✓ marks</li>
+      <li>A running count under every photo, "12 deleted · 30 kept", so you always know it's working</li>
+      <li>Changes made on your Mac show up while the app is open</li>
+    </ul>
+  </div>
+</section>
+
+<section class="shots" aria-label="Screens from the app on iPhone">
+  <figure><img src="img/iphone-01-viewer.webp" alt="A photo of a beach from the folder Weekend Away, with its name, date, 3 of 10, 2 deleted 2 kept, and Delete and Keep buttons below" width="620" height="1268" loading="lazy"><figcaption>One photo at a time, with a running count</figcaption></figure>
+  <figure><img src="img/iphone-02-select.webp" alt="The folder as a grid with three photos selected and buttons for Delete 3, Keep 3, Compare and Share" width="620" height="1268" loading="lazy"><figcaption>Select a few, then deal with them together</figcaption></figure>
+  <figure><img src="img/iphone-03-compare.webp" alt="Two photos stacked on an iPhone to compare, each with Keep Only This, Delete and Keep" width="620" height="1268" loading="lazy"><figcaption>Compare on iPhone: stacked, or side by side</figcaption></figure>
+</section>
+
+<section class="shots two" aria-label="Screens from the app on iPad">
+  <figure><img src="img/ipad-01-viewer.webp" alt="A mountain photo filling an iPad screen, with Delete and Keep below" width="900" height="1174" loading="lazy"><figcaption>On iPad, every photo gets the whole screen</figcaption></figure>
+  <figure><img src="img/ipad-02-grid-new.webp" alt="The folder as a grid on iPad, three photos tagged NEW and three marked kept" width="900" height="1174" loading="lazy"><figcaption>The grid marks what's new and what you kept</figcaption></figure>
 </section>
 
 <section class="features">
   <div class="card"><h3>Sort it your way</h3><p>By date created, date modified, name, size or kind, newest or oldest first.</p></div>
   <div class="card"><h3>Keep means keep</h3><p>A kept photo stays right where it is with a ✓ on it. Or have kept photos move to a Keepers folder.</p></div>
-  <div class="card"><h3>Full screen and zoom</h3><p>Tap a photo to see it edge to edge. Pinch or double-tap to check focus before you decide.</p></div>
-  <div class="card"><h3>Clear dozens at once</h3><p>Select in the grid, then Delete, Keep or Share them together. Or share the photo you're on in one tap.</p></div>
+  <div class="card"><h3>Full screen and zoom</h3><p>Tap a photo to see it edge to edge, tap again to go back. Pinch or double-tap to check focus before you decide.</p></div>
+  <div class="card"><h3>More photo, fewer buttons</h3><p>Once the swipes are second nature, hide the Delete and Keep buttons in Options and give the photo the room.</p></div>
   <div class="card"><h3>History for every folder</h3><p>See what you deleted and kept, how much space you freed, and put anything back.</p></div>
   <div class="card"><h3>Nothing leaves your device</h3><p>No account, no uploads, no tracking. The app never touches the internet.</p></div>
 </section>

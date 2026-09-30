@@ -165,3 +165,15 @@ footer a.discord svg { width: 14px; height: 14px; }
 
 /* The lifted photo leans past the sheet; never let it widen the page. */
 main { overflow-x: clip; }
+
+/* Compare-style sections with the picture first */
+.compare.flip { grid-template-columns: 1fr 1.1fr; }
+/* Three phones across; two iPads across */
+.shots { grid-template-columns: repeat(3, 1fr); }
+.shots.two { grid-template-columns: 1fr 1fr; }
+.shots.two img { max-width: 420px; }
+@media (max-width: 760px) {
+  .compare.flip { grid-template-columns: 1fr; }
+  .compare.flip figure { order: 2; }
+  .shots, .shots.two { grid-template-columns: 1fr; }
+}
