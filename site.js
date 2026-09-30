@@ -1,5 +1,5 @@
 // Discord invite, in one place. Every [data-discord] link uses it; empty hides them all.
-var DISCORD = "";
+var DISCORD = "https://discord.gg/KgQEmCaMsy";
 (function () {
   document.querySelectorAll("[data-discord]").forEach(function (a) {
     if (!DISCORD) { a.hidden = true; return; }

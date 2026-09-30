@@ -127,3 +127,5 @@ footer a { color: var(--ink-soft); margin-right: 16px; text-decoration: none; }
   .shots { grid-template-columns: 1fr; }
   nav a { margin-left: 12px; font-size: 14px; }
 }
+footer a.discord svg { width: 14px; height: 14px; }
+.button.discord-button { color: #fff; }
