@@ -1,0 +1,129 @@
+/* Thumb Through: a contact sheet under a darkroom safelight. Dark first, like the app.
+   Amber is the brand; red and green mean delete and keep, and nothing else. */
+:root {
+  --bg: #0f0f11;
+  --panel: #18181c;
+  --line: #2a2a31;
+  --ink: #f2efe8;
+  --ink-soft: #b4b0a8;
+  --amber: #ffb547;
+  --amber-ink: #1a1305;
+  --delete: #ff6b62;
+  --keep: #4cd07a;
+  --sheet: #1d1d22;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f1ea;
+    --panel: #fffdf8;
+    --line: #e2dccf;
+    --ink: #17161a;
+    --ink-soft: #5b5750;
+    --amber: #a85f00;
+    --amber-ink: #ffffff;
+    --delete: #c4261d;
+    --keep: #1e7b34;
+    --sheet: #e8e2d4;
+  }
+}
+[hidden] { display: none !important; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+a { color: var(--amber); }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+header.bar { padding: 18px 0; }
+header.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 800; letter-spacing: -0.01em; font-size: 18px; }
+.brand img { width: 34px; height: 34px; border-radius: 8px; }
+nav a { margin-left: 16px; text-decoration: none; color: var(--ink-soft); font-weight: 600; font-size: 15px; }
+nav a:hover { color: var(--ink); }
+
+/* Hero: words on the left, the contact sheet on the right */
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 36px 0 70px; }
+.eyebrow { font: 600 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin: 0 0 16px; }
+.hero h1 { font-size: clamp(38px, 6vw, 62px); line-height: 1.02; margin: 0 0 18px; font-weight: 800; letter-spacing: -0.03em; }
+.hero h1 em { font-style: normal; color: var(--amber); }
+.lede { font-size: 20px; color: var(--ink-soft); margin: 0 0 26px; max-width: 30em; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.button { display: inline-block; background: var(--amber); color: var(--amber-ink); padding: 13px 22px; border-radius: 12px; font-weight: 700; text-decoration: none; }
+.button.ghost { background: transparent; color: var(--ink); border: 2px solid var(--line); }
+.store-badge { display: inline-block; line-height: 0; margin: 11px 0; }
+.store-badge img { height: 44px; width: auto; }
+.note { font-size: 14px; color: var(--ink-soft); margin-top: 14px; }
+
+/* The contact sheet: the app's own grid, four across, hairline gaps */
+.sheet { position: relative; background: var(--sheet); padding: 14px; border-radius: 18px; transform: rotate(-2deg); box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+.sheet .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+.sheet .grid img { width: 100%; aspect-ratio: 1; display: block; object-fit: cover; }
+.sheet .grid img.gone { opacity: .18; }
+.sheet .grid img.kept { outline: 3px solid var(--keep); outline-offset: -3px; }
+.sheet .frame-no { font: 11px/1 ui-monospace, Menlo, monospace; color: var(--ink-soft); display: flex; justify-content: space-between; margin-top: 10px; letter-spacing: .08em; }
+.lifted { position: absolute; width: 46%; right: -6%; top: 26%; transform: rotate(5deg); border-radius: 10px; overflow: hidden; box-shadow: 0 24px 50px rgba(0,0,0,.5); border: 6px solid #fff; animation: lift 3.2s ease-in-out infinite; }
+.lifted img { display: block; width: 100%; }
+.chip { position: absolute; font: 700 14px/1 -apple-system, sans-serif; padding: 8px 12px; border-radius: 999px; color: #fff; white-space: nowrap; }
+.chip.up { background: var(--delete); top: 8%; right: -2%; }
+.chip.down { background: var(--keep); bottom: 26%; right: 18%; }
+@keyframes lift { 0%, 100% { transform: rotate(5deg) translateY(0); } 50% { transform: rotate(5deg) translateY(-14px); } }
+@media (prefers-reduced-motion: reduce) { .lifted { animation: none; } }
+
+/* The one idea, stated plainly */
+.idea { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 10px 0 70px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+.card h3 { margin: 0 0 6px; font-size: 18px; }
+.card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+.card .glyph { font-size: 22px; margin-bottom: 10px; display: block; }
+
+section h2 { font-size: clamp(28px, 4vw, 38px); letter-spacing: -0.02em; margin: 0 0 8px; }
+section .sub { color: var(--ink-soft); margin: 0 0 28px; font-size: 18px; }
+
+/* How the swipe works: three frames, like a strip */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding-bottom: 70px; }
+.step { border-top: 3px solid var(--line); padding-top: 16px; }
+.step .num { font: 600 13px/1 ui-monospace, Menlo, monospace; color: var(--amber); letter-spacing: .1em; }
+.step h3 { margin: 8px 0 6px; font-size: 20px; }
+.step p { margin: 0; color: var(--ink-soft); }
+.step .up { color: var(--delete); font-weight: 700; }
+.step .down { color: var(--keep); font-weight: 700; }
+
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; padding-bottom: 70px; }
+.shots figure { margin: 0; text-align: center; }
+.shots img { width: 100%; max-width: 300px; height: auto; }
+.shots figcaption { color: var(--ink-soft); font-size: 15px; margin-top: 10px; }
+
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding-bottom: 70px; }
+
+/* Documents: privacy, support */
+.doc { max-width: 720px; padding: 10px 20px 60px; margin: 0 auto; }
+.doc h1 { font-size: 40px; line-height: 1.1; margin: 10px 0 6px; font-weight: 800; letter-spacing: -0.02em; }
+.doc .updated { color: var(--ink-soft); font-size: 14px; margin-bottom: 28px; }
+.doc h2 { font-size: 22px; margin: 34px 0 8px; }
+.doc h3 { font-size: 18px; margin: 22px 0 4px; }
+.summary { background: var(--panel); border: 1px solid var(--line); border-left: 5px solid var(--amber); border-radius: 12px; padding: 16px 18px; }
+.email-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.email-row code { font-size: 16px; }
+.email-row button { font: inherit; font-size: 14px; border: 1px solid var(--line); background: transparent; color: var(--amber); border-radius: 8px; padding: 4px 10px; cursor: pointer; }
+
+/* Discord: its own mark and blurple, like every app site of Eric's */
+.discord { display: inline-flex; align-items: center; gap: 8px; }
+.discord svg { width: 18px; height: 18px; flex: none; }
+.discord-button { background: #5865F2; color: #fff; }
+nav a.nav-discord { background: #5865F2; color: #fff; padding: 6px 12px; border-radius: 999px; }
+
+footer { border-top: 1px solid var(--line); padding: 26px 0 40px; color: var(--ink-soft); font-size: 14px; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+footer a { color: var(--ink-soft); margin-right: 16px; text-decoration: none; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 50px; padding-top: 16px; }
+  .sheet { margin: 0 14px 0 4px; }
+  .idea, .steps, .features { grid-template-columns: 1fr; }
+  .shots { grid-template-columns: 1fr; }
+  nav a { margin-left: 12px; font-size: 14px; }
+}
