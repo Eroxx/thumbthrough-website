@@ -129,3 +129,39 @@ footer a { color: var(--ink-soft); margin-right: 16px; text-decoration: none; }
 }
 footer a.discord svg { width: 14px; height: 14px; }
 .button.discord-button { color: #fff; }
+
+/* Where it works, under the hero lede */
+.places { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: -8px 0 24px; }
+.places li { font: 600 13px/1 ui-monospace, Menlo, monospace; letter-spacing: .04em; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 999px; padding: 7px 11px; }
+
+/* The USP, stated as a comparison: Files versus the app */
+.versus { padding: 0 0 70px; }
+.versus table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; font-size: 16px; }
+.versus th, .versus td { padding: 14px 18px; text-align: left; border-top: 1px solid var(--line); }
+.versus thead th { border-top: 0; font-size: 14px; color: var(--ink-soft); font-weight: 700; }
+.versus thead th.us { color: var(--amber); }
+.versus tbody th { font-weight: 600; }
+.versus td { white-space: nowrap; font-weight: 700; }
+.versus td.yes { color: var(--keep); }
+.versus td.no { color: var(--delete); }
+.versus td.meh { color: var(--ink-soft); font-weight: 600; }
+
+/* Compare: words beside the iPad */
+.compare { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; padding-bottom: 70px; }
+.compare figure { margin: 0; text-align: center; }
+.compare img { width: 100%; max-width: 440px; height: auto; }
+.ticks { padding-left: 1.2em; color: var(--ink-soft); margin: 0; }
+.ticks li { margin: 6px 0; }
+
+.uses { padding-bottom: 70px; }
+.use-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+@media (max-width: 760px) {
+  .compare { grid-template-columns: 1fr; gap: 30px; }
+  .use-grid { grid-template-columns: 1fr; }
+  .versus th, .versus td { padding: 11px 10px; font-size: 14px; }
+  .versus td { white-space: normal; }
+}
+
+/* The lifted photo leans past the sheet; never let it widen the page. */
+main { overflow-x: clip; }
