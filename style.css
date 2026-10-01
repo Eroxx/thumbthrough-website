@@ -177,3 +177,8 @@ main { overflow-x: clip; }
   .compare.flip figure { order: 2; }
   .shots, .shots.two { grid-template-columns: 1fr; }
 }
+
+/* Hero video: the swipe itself, light and dark versions (site.js picks) */
+.hero-video { margin: 0; text-align: center; }
+.hero-video video { width: 100%; max-width: 320px; height: auto; display: block; margin: 0 auto; }
+.hero-video figcaption { color: var(--ink-soft); font-size: 15px; margin-top: 10px; }

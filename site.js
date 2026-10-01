@@ -24,3 +24,24 @@ var SUPPORT_EMAIL = "support@thumbthroughapp.com";
     });
   });
 })();
+
+// Videos with a light and a dark version, like the screenshots. The page is dark unless the
+// system asks for light, so the light video plays only then. Reduced motion: no autoplay, controls.
+(function () {
+  var vids = document.querySelectorAll("video[data-themed]");
+  if (!vids.length || !window.matchMedia) return;
+  var mq = window.matchMedia("(prefers-color-scheme: light)");
+  var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var pick = function () {
+    vids.forEach(function (v) {
+      var base = "img/" + v.getAttribute("data-themed") + (mq.matches ? "" : "-dark");
+      if (v.currentSrc && v.currentSrc.indexOf(base + ".mp4") !== -1) return;
+      v.poster = base + "-poster.webp";
+      v.muted = true; v.src = base + ".mp4"; v.load();
+      if (still) { v.removeAttribute("autoplay"); v.controls = true; return; }
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    });
+  };
+  pick();
+  if (mq.addEventListener) mq.addEventListener("change", pick);
+})();
