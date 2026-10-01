@@ -182,3 +182,6 @@ main { overflow-x: clip; }
 .hero-video { margin: 0; text-align: center; }
 .hero-video video { width: 100%; max-width: 320px; height: auto; display: block; margin: 0 auto; }
 .hero-video figcaption { color: var(--ink-soft); font-size: 15px; margin-top: 10px; }
+/* The dark video's backdrop decodes a shade darker than the page; lighten hides the seam */
+.hero-video video { mix-blend-mode: lighten; }
+@media (prefers-color-scheme: light) { .hero-video video { mix-blend-mode: normal; } }
